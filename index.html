@@ -24,6 +24,14 @@
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
+		
+		var kmlLayer = new L.KML("TramLines.kml", {async: true});
+                                                              
+        kmlLayer.on("loaded", function(e) { 
+            map.fitBounds(e.target.getBounds());
+        });
+                                                
+        map.addLayer(kmlLayer);
 
 		// add a marker in the given location, attach some popup content to it and open the popup
 		/*L.marker([hilat, hilng]).addTo(map)
