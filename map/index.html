@@ -133,8 +133,14 @@
 		var map = L.map('map').setView([hilat, hilng], 13);
 
 		// add an OpenStreetMap tile layer
-		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+/*		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);*/
+
+		//map box tile layer
+		L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+		    attribution: '<a href="https://www.mapbox.com/about/maps/">Terms and Feedback</a>',
+		    id: 'examples.map-20v6611k'
 		}).addTo(map);
 		
 		var kmlLayer = new L.KML("./TramRoutes.kml", {async: true});
